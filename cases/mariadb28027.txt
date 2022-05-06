@@ -1,0 +1,13 @@
+CREATE TABLE t(c1 INT);
+INSERT INTO t(c1) VALUES (3), (2), (1);
+
+BEGIN;
+SELECT * FROM t WHERE RAND('test');
+COMMIT;
+
+BEGIN;
+UPDATE t SET c1 = + 1 WHERE RAND('test');
+COMMIT;
+
+1-1-2-2-1-2
+END
