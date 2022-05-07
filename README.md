@@ -45,14 +45,14 @@ java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --p
 | 3 | http://bugs.mysql.com/106655 | Duplicate | Yes |
 | 4 | http://bugs.mysql.com/107125 | False positive | No |
 | 5 | https://jira.mariadb.org/browse/MDEV-26643 | Duplicate | Yes |
-| 6 | https://jira.mariadb.org/browse/MDEV-27922 | New | Yes |
-| 7 | https://jira.mariadb.org/browse/MDEV-27992 | New | Yes |
-| 8 | https://jira.mariadb.org/browse/MDEV-28027 | New | No |
+| 6 | https://jira.mariadb.org/browse/MDEV-27922 | Verified | Yes |
+| 7 | https://jira.mariadb.org/browse/MDEV-27992 | Fixed | Yes |
+| 8 | https://jira.mariadb.org/browse/MDEV-28027 | Verified | No |
 | 9 | https://jira.mariadb.org/browse/MDEV-28040 | Unconfirmed | Yes |
-| 10 | https://jira.mariadb.org/browse/MDEV-28140 | New | No |
+| 10 | https://jira.mariadb.org/browse/MDEV-28140 | Verified | No |
 | 11 | https://jira.mariadb.org/browse/MDEV-28142 | Unconfirmed | No |
 | 12 | https://github.com/pingcap/tidb/issues/28092 | Duplicate | Yes |
 | 13 | https://github.com/pingcap/tidb/issues/28095 | Duplicate | Yes |
-| 14 | https://github.com/pingcap/tidb/issues/31405 | New | No |
+| 14 | https://github.com/pingcap/tidb/issues/31405 | Verified | No |
 | 15 | https://github.com/pingcap/tidb/issues/33315 | Duplicate | Yes |
-| 16 | https://github.com/pingcap/tidb/issues/34177 | New | No |
+| 16 | https://github.com/pingcap/tidb/issues/34177 | Verified | No |
