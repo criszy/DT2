@@ -38,21 +38,21 @@ java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --p
 ```
 # Bug List
 
-| ID | Link | status | transaction related |
-| --- | --- |  :---: | :---: |
-| 1 | http://bugs.mysql.com/104833 | Duplicate | Yes |
-| 2 | http://bugs.mysql.com/106629 | False positive | Yes |
-| 3 | http://bugs.mysql.com/106655 | Duplicate | Yes |
-| 4 | http://bugs.mysql.com/107125 | False positive | No |
-| 5 | https://jira.mariadb.org/browse/MDEV-26643 | Duplicate | Yes |
-| 6 | https://jira.mariadb.org/browse/MDEV-27922 | Verified | Yes |
-| 7 | https://jira.mariadb.org/browse/MDEV-27992 | Fixed | Yes |
-| 8 | https://jira.mariadb.org/browse/MDEV-28027 | Verified | No |
-| 9 | https://jira.mariadb.org/browse/MDEV-28040 | Unconfirmed | Yes |
-| 10 | https://jira.mariadb.org/browse/MDEV-28140 | Verified | No |
-| 11 | https://jira.mariadb.org/browse/MDEV-28142 | Unconfirmed | No |
-| 12 | https://github.com/pingcap/tidb/issues/28092 | Duplicate | Yes |
-| 13 | https://github.com/pingcap/tidb/issues/28095 | Duplicate | Yes |
-| 14 | https://github.com/pingcap/tidb/issues/31405 | Verified | No |
-| 15 | https://github.com/pingcap/tidb/issues/33315 | Duplicate | Yes |
-| 16 | https://github.com/pingcap/tidb/issues/34177 | Verified | No |
+| ID | DBMS | Link | status | transaction related |
+| --- | --- | --- |  :---: | :---: |
+| 1 | MySQL | http://bugs.mysql.com/104833 | Duplicate | Yes |
+| 2 | MySQL | http://bugs.mysql.com/106629 | False positive | Yes |
+| 3 | MySQL | http://bugs.mysql.com/106655 | Duplicate | Yes |
+| 4 | MySQL | http://bugs.mysql.com/107125 | False positive | No |
+| 5 | MariaDB | https://jira.mariadb.org/browse/MDEV-26643 | Duplicate | Yes |
+| 6 | MariaDB | https://jira.mariadb.org/browse/MDEV-27922 | Verified | Yes |
+| 7 | MariaDB | https://jira.mariadb.org/browse/MDEV-27992 | Fixed | Yes |
+| 8 | MariaDB | https://jira.mariadb.org/browse/MDEV-28027 | Verified | No |
+| 9 | MariaDB | https://jira.mariadb.org/browse/MDEV-28040 | Unconfirmed | Yes |
+| 10 | MariaDB | https://jira.mariadb.org/browse/MDEV-28140 | Verified | No |
+| 11 | MariaDB | https://jira.mariadb.org/browse/MDEV-28142 | Unconfirmed | No |
+| 12 | TiDB | https://github.com/pingcap/tidb/issues/28092 | Duplicate | Yes |
+| 13 | TiDB | https://github.com/pingcap/tidb/issues/28095 | Duplicate | Yes |
+| 14 | TiDB | https://github.com/pingcap/tidb/issues/31405 | Verified | No |
+| 15 | TiDB | https://github.com/pingcap/tidb/issues/33315 | Duplicate | Yes |
+| 16 | TiDB | https://github.com/pingcap/tidb/issues/34177 | Verified | No |
