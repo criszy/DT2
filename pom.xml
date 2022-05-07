@@ -11,7 +11,7 @@
   <licenses>
     <license>
       <name>MIT License</name>
-      <url>https://github.com/sqlancer/sqlancer/blob/master/LICENSE.md</url>
+      <url>https://github.com/DT2/DT2/blob/master/LICENSE.md</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -74,7 +74,7 @@
             <configuration>
               <target>
                 <delete>
-                  <fileset dir="${project.build.directory}/" includes="original-sqlancer-*.jar" />
+                  <fileset dir="${project.build.directory}/" includes="original-DT2-*.jar" />
                 </delete>
               </target>
             </configuration>
@@ -180,7 +180,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>sqlancer.Main</mainClass>
+              <mainClass>DT2.Main</mainClass>
             </manifest>
           </archive>
         </configuration>

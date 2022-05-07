@@ -25,7 +25,7 @@ git clone https://github.com/txnDT2/DT2.git
 cd DT2
 mvn package -DskipTests
 cd target
-java -jar sqlancer-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --port 4000 --txn-num 2 tidb --oracle DIFF
+java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --port 4000 --txn-num 2 tidb --oracle DIFF
 ```
 # Reproducing
 Required Parameters:
@@ -34,7 +34,7 @@ Required Parameters:
 * `--txn-num`: The number of reproduced transactions. Default: `2`
 
 ```bash
-java -jar sqlancer-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --port 4000 --set-case --case-file .\\cases\\test.txt --txn-num 2 tidb --oracle DIFF
+java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --port 4000 --set-case --case-file .\\cases\\test.txt --txn-num 2 tidb --oracle DIFF
 ```
 
 
