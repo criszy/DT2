@@ -38,7 +38,7 @@ java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --p
 ```
 # Bug List
 
-| ID | DBMS | Link | status | transaction related |
+| ID | DBMS | Link | Status | Transaction Related |
 | --- | --- | --- |  :---: | :---: |
 | 1 | MySQL | http://bugs.mysql.com/104833 | Duplicate | Yes |
 | 2 | MySQL | http://bugs.mysql.com/106629 | False positive | Yes |
