@@ -16,8 +16,8 @@ import DT2.mysql.ast.MySQLBinaryLogicalOperation;
 import DT2.mysql.ast.MySQLBinaryLogicalOperation.MySQLBinaryLogicalOperator;
 import DT2.mysql.ast.MySQLCastOperation;
 import DT2.mysql.ast.MySQLColumnReference;
-import DT2.mysql.ast.MySQLComputableFunction;
-import DT2.mysql.ast.MySQLComputableFunction.MySQLFunction;
+//import DT2.mysql.ast.MySQLComputableFunction;
+//import DT2.mysql.ast.MySQLComputableFunction.MySQLFunction;
 import DT2.mysql.ast.MySQLConstant;
 import DT2.mysql.ast.MySQLConstant.MySQLDoubleConstant;
 import DT2.mysql.ast.MySQLExists;
@@ -138,18 +138,18 @@ public class MySQLExpressionGenerator extends UntypedExpressionGenerator<MySQLEx
         }
     }
 
-    private MySQLExpression getComputableFunction(int depth) {
-        MySQLFunction func = MySQLFunction.getRandomFunction();
-        int nrArgs = func.getNrArgs();
-        if (func.isVariadic()) {
-            nrArgs += Randomly.smallNumber();
-        }
-        MySQLExpression[] args = new MySQLExpression[nrArgs];
-        for (int i = 0; i < args.length; i++) {
-            args[i] = generateExpression(depth + 1);
-        }
-        return new MySQLComputableFunction(func, args);
-    }
+//    private MySQLExpression getComputableFunction(int depth) {
+//        MySQLFunction func = MySQLFunction.getRandomFunction();
+//        int nrArgs = func.getNrArgs();
+//        if (func.isVariadic()) {
+//            nrArgs += Randomly.smallNumber();
+//        }
+//        MySQLExpression[] args = new MySQLExpression[nrArgs];
+//        for (int i = 0; i < args.length; i++) {
+//            args[i] = generateExpression(depth + 1);
+//        }
+//        return new MySQLComputableFunction(func, args);
+//    }
 
 //    private enum ConstantType {
 //        INT, NULL, STRING, DOUBLE;
@@ -238,6 +238,7 @@ public class MySQLExpressionGenerator extends UntypedExpressionGenerator<MySQLEx
                 return "" + random.nextDouble();
             case "TINYTEXT":
                 return getRandomString(5);
+            case "BLOB":
             case "TEXT":
                 return getRandomString(10);
             case "MEDIUMTEXT":

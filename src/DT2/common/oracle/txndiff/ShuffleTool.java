@@ -44,12 +44,12 @@ public class ShuffleTool {
         return res;
     }
 
-    public static ArrayList<ArrayList<StatementCell>> genAllSubmittedTrace(Transaction txn1, Transaction txn2) {
-        int n1 = txn1.statements.size(), n2 = txn2.statements.size();
-        ArrayList<ArrayList<StatementCell>> res = new ArrayList<>();
-        shuffle(res, new ArrayList<>(), txn1.statements, n1, 0, txn2.statements, n2, 0);
-        return res;
-    }
+//    public static ArrayList<ArrayList<StatementCell>> genAllSubmittedTrace(Transaction txn1, Transaction txn2) {
+//        int n1 = txn1.statements.size(), n2 = txn2.statements.size();
+//        ArrayList<ArrayList<StatementCell>> res = new ArrayList<>();
+//        shuffle(res, new ArrayList<>(), txn1.statements, n1, 0, txn2.statements, n2, 0);
+//        return res;
+//    }
 
     public static ArrayList<ArrayList<StatementCell>> genAllSubmittedTrace(HashMap<Integer, Transaction> txns) {
         HashMap<Integer, Integer> num = new HashMap<>();
@@ -85,19 +85,19 @@ public class ShuffleTool {
         }
     }
 
-    private static int A(int n, int m) {
-        int res = 1;
-        for (int i = m; i > 0; i--) {
-            res *= n;
-            n--;
-        }
-        return res;
-    }
+//    private static int A(int n, int m) {
+//        int res = 1;
+//        for (int i = m; i > 0; i--) {
+//            res *= n;
+//            n--;
+//        }
+//        return res;
+//    }
 
-    private static int C(int n, int m) {
-        if (m > n / 2) {
-            m = n - m;
-        }
-        return A(n, m) / A(m, m);
-    }
+//    private static int C(int n, int m) {
+//        if (m > n / 2) {
+//            m = n - m;
+//        }
+//        return A(n, m) / A(m, m);
+//    }
 }

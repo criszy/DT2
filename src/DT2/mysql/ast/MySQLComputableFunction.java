@@ -3,7 +3,7 @@ package DT2.mysql.ast;
 import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
 
-import DT2.Randomly;
+//import DT2.Randomly;
 import DT2.mysql.MySQLSchema.MySQLDataType;
 import DT2.mysql.ast.MySQLCastOperation.CastType;
 
@@ -188,9 +188,9 @@ public class MySQLComputableFunction implements MySQLExpression {
 
         public abstract MySQLConstant apply(MySQLConstant[] evaluatedArgs, MySQLExpression... args);
 
-        public static MySQLFunction getRandomFunction() {
-            return Randomly.fromOptions(values());
-        }
+//        public static MySQLFunction getRandomFunction() {
+//            return Randomly.fromOptions(values());
+//        }
 
         @Override
         public String toString() {

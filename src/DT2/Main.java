@@ -380,9 +380,9 @@ public final class Main {
             }
         }
 
-        public DatabaseProvider<G, O, C> getProvider() {
-            return provider;
-        }
+//        public DatabaseProvider<G, O, C> getProvider() {
+//            return provider;
+//        }
 
     }
 

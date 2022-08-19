@@ -20,7 +20,7 @@ public class DiffChecker {
         this.txns = txns;
     }
 
-    public boolean checkSeveral(GlobalState state) {
+    public boolean checkSeveral(GlobalState<?, ?, ?> state) {
         ArrayList<ArrayList<StatementCell>> submittedOrderList = ShuffleTool.genSeveralSubmittedTrace(txns, checkSize);
         int count = 0;
         boolean findBug = false;
@@ -48,7 +48,7 @@ public class DiffChecker {
     }
 
 
-    public void checkSchedule(String scheduleStr, GlobalState state) {
+    public void checkSchedule(String scheduleStr, GlobalState<?, ?, ?> state) {
         String[] schedule = scheduleStr.split("-");
         int len = 0;
         for (int i = 1; i <= txns.size(); i++) {
@@ -72,7 +72,7 @@ public class DiffChecker {
         oracleCheck(submittedOrder, state);
     }
 
-    public void checkAll(GlobalState state) {
+    public void checkAll(GlobalState<?, ?, ?> state) {
         boolean findBug = false;
         ArrayList<ArrayList<StatementCell>> submittedOrderList = ShuffleTool.genAllSubmittedTrace(txns);
         for (ArrayList<StatementCell> submittedOrder : submittedOrderList) {
@@ -100,7 +100,7 @@ public class DiffChecker {
         return false;
     }
 
-    private boolean oracleCheck(ArrayList<StatementCell> schedule, GlobalState state) {
+    private boolean oracleCheck(ArrayList<StatementCell> schedule, GlobalState<?, ?, ?> state) {
         System.out.println("Check new schedule.");
         ArrayList<IsolationLevel> isolationLevels = DiffTool.isolationLevels;
         ArrayList<Pair<String, TxnPairResult>> resultList = new ArrayList<>();

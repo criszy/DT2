@@ -9,13 +9,13 @@ import DT2.IgnoreMeException;
 import DT2.Randomly;
 import DT2.common.query.ExpectedErrors;
 import DT2.common.query.SQLQueryAdapter;
-import DT2.tidb.TiDBBugs;
+//import DT2.tidb.TiDBBugs;
 import DT2.tidb.TiDBExpressionGenerator;
 import DT2.tidb.TiDBProvider.TiDBGlobalState;
 import DT2.tidb.TiDBSchema.TiDBColumn;
 import DT2.tidb.TiDBSchema.TiDBCompositeDataType;
 import DT2.tidb.TiDBSchema.TiDBDataType;
-import DT2.tidb.TiDBSchema.TiDBTable;
+//import DT2.tidb.TiDBSchema.TiDBTable;
 import DT2.tidb.visitor.TiDBVisitor;
 
 public class TiDBTableGenerator {
@@ -96,24 +96,27 @@ public class TiDBTableGenerator {
             if (Randomly.getBooleanWithRatherLowProbability() && type.getPrimitiveDataType() != TiDBDataType.TEXT
                     && type.getPrimitiveDataType() != TiDBDataType.BLOB && !isGeneratedColumn) {
                 sb.append("DEFAULT ");
-                sb.append(TiDBVisitor.asString(gen.generateConstant()));
+                sb.append(TiDBVisitor.asString(gen.generateConstant(type.getPrimitiveDataType())));
                 sb.append(" ");
 //                errors.add("Invalid default value");
 //                errors.add(
 //                        "All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, use UNIQUE instead");
             }
-            if (type.getPrimitiveDataType() == TiDBDataType.INT && Randomly.getBooleanWithRatherLowProbability()
-                    && !isGeneratedColumn) {
-                sb.append(" AUTO_INCREMENT ");
-//                errors.add("there can be only one auto column and it must be defined as a key");
-            }
+            boolean canUseAsAutoIncrement = false;
             if (Randomly.getBooleanWithRatherLowProbability() && canUseAsUnique(type)) {
                 sb.append("UNIQUE ");
+                canUseAsAutoIncrement = true;
             }
             if (Randomly.getBooleanWithRatherLowProbability() && allowPrimaryKey && !primaryKeyAsTableConstraints
                     && canUseAsUnique(type) && !isGeneratedColumn) {
                 sb.append("PRIMARY KEY ");
                 allowPrimaryKey = false;
+                canUseAsAutoIncrement = true;
+            }
+            if (type.getPrimitiveDataType() == TiDBDataType.INT && Randomly.getBooleanWithRatherLowProbability()
+                    && !isGeneratedColumn && canUseAsAutoIncrement) {
+                sb.append(" AUTO_INCREMENT ");
+//                errors.add("there can be only one auto column and it must be defined as a key");
             }
         }
 //        if (primaryKeyAsTableConstraints) {
@@ -179,19 +182,19 @@ public class TiDBTableGenerator {
 //        appendSizeSpecifiers(sb, type.getPrimitiveDataType());
     }
 
-    private enum Action {
-        AUTO_INCREMENT, PRE_SPLIT_REGIONS, SHARD_ROW_ID_BITS
-    }
+//    private enum Action {
+//        AUTO_INCREMENT, PRE_SPLIT_REGIONS, SHARD_ROW_ID_BITS
+//    }
 
-    private void appendSizeSpecifiers(StringBuilder sb, TiDBDataType type) {
-        if (type.isNumeric() && Randomly.getBoolean() && !TiDBBugs.bug16028) {
-            sb.append(" UNSIGNED");
-        }
-        if (type.isNumeric() && Randomly.getBoolean()
-                && !TiDBBugs.bug16028 /* seems to be the same bug as https://github.com/pingcap/tidb/issues/16028 */) {
-            sb.append(" ZEROFILL");
-        }
-    }
+//    private void appendSizeSpecifiers(StringBuilder sb, TiDBDataType type) {
+//        if (type.isNumeric() && Randomly.getBoolean() && !TiDBBugs.bug16028) {
+//            sb.append(" UNSIGNED");
+//        }
+//        if (type.isNumeric() && Randomly.getBoolean()
+//                && !TiDBBugs.bug16028 /* seems to be the same bug as https://github.com/pingcap/tidb/issues/16028 */) {
+//            sb.append(" ZEROFILL");
+//        }
+//    }
 
     static void appendSpecifiers(StringBuilder sb, TiDBDataType type) {
         if (type == TiDBDataType.TEXT || type == TiDBDataType.BLOB) {

@@ -157,6 +157,31 @@ public class TiDBExpressionGenerator extends UntypedExpressionGenerator<TiDBExpr
         }
     }
 
+    public TiDBExpression generateConstant(TiDBDataType type) {
+//        TiDBDataType type = TiDBDataType.getRandom();
+        if (Randomly.getBooleanWithRatherLowProbability()) {
+            return TiDBConstant.createNullConstant();
+        }
+        switch (type) {
+            case INT:
+                return TiDBConstant.createIntConstant(globalState.getRandomly().getInteger());
+            case BLOB:
+            case TEXT:
+                return TiDBConstant.createStringConstant(globalState.getRandomly().getString());
+            case BOOL:
+                return TiDBConstant.createBooleanConstant(Randomly.getBoolean());
+            case FLOATING:
+                return TiDBConstant.createFloatConstant(globalState.getRandomly().getDouble());
+            case CHAR:
+                return TiDBConstant.createStringConstant(globalState.getRandomly().getChar());
+            case DECIMAL:
+//        case NUMERIC:
+                return TiDBConstant.createIntConstant(globalState.getRandomly().getInteger());
+            default:
+                throw new AssertionError();
+        }
+    }
+
     @Override
     public List<TiDBExpression> generateOrderBys() {
         List<TiDBExpression> expressions = super.generateOrderBys();

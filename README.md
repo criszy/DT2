@@ -13,6 +13,7 @@ Important Parameters:
 * `--port`: The port used to log into TiDB. Default: `4000`
 * `--username`: The username used to log into all tested DBMSs. Default: `"root"`
 * `--password`: The password used to log into all tested DBMSs. Default: `"root"`
+* `--db`: The name of tested database in all tested DBMSs. Default: `"test"`
 * `--txn-num`: The maximum number of transactions. Default: `2`
 * `--mysql`: Enables or disables to test MySQL. Default: `false`
 * `--mysql-port`: The port of tested MySQL. Default: `3306`
@@ -25,7 +26,7 @@ git clone https://github.com/txnDT2/DT2.git
 cd DT2
 mvn package -DskipTests
 cd target
-java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --port 4000 --txn-num 2 tidb --oracle DIFF
+java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --port 4000 --db test --txn-num 2 tidb --oracle DIFF
 ```
 # Reproducing
 Required Parameters:
@@ -34,7 +35,7 @@ Required Parameters:
 * `--txn-num`: The number of reproduced transactions. Default: `2`
 
 ```bash
-java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --port 4000 --set-case --case-file .\\cases\\test.txt --txn-num 2 tidb --oracle DIFF
+java -jar DT2-*.jar --mysql --mysql-port 3306 --mariadb --mariadb-port 10006 --port 4000 --set-case --case-file .\\cases\\test.txt --db test --txn-num 2 tidb --oracle DIFF
 ```
 # Bug List
 

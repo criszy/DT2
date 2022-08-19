@@ -29,9 +29,9 @@ public class TiDBSchema extends AbstractSchema<TiDBGlobalState, TiDBTable> {
             isPrimitive = true;
         }
 
-        TiDBDataType(boolean isPrimitive) {
-            this.isPrimitive = isPrimitive;
-        }
+//        TiDBDataType(boolean isPrimitive) {
+//            this.isPrimitive = isPrimitive;
+//        }
 
         public static TiDBDataType getRandom() {
             return Randomly.fromOptions(values());
@@ -243,9 +243,9 @@ public class TiDBSchema extends AbstractSchema<TiDBGlobalState, TiDBTable> {
             super(tableName, columns, indexes, isView);
         }
 
-        public boolean hasPrimaryKey() {
-            return getColumns().stream().anyMatch(c -> c.isPrimaryKey());
-        }
+//        public boolean hasPrimaryKey() {
+//            return getColumns().stream().anyMatch(c -> c.isPrimaryKey());
+//        }
 
     }
 

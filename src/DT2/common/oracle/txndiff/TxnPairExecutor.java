@@ -14,8 +14,6 @@ import java.util.concurrent.SynchronousQueue;
 public class TxnPairExecutor {
     private final ArrayList<StatementCell> submittedOrder;
 
-    private SQLConnection con1;
-    private SQLConnection con2;
     private ArrayList<SQLConnection> cons;
     private TxnPairResult result;
     private String exceptionMessage = "";

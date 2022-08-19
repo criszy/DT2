@@ -9,17 +9,17 @@ import DT2.common.query.ExpectedErrors;
 import DT2.common.query.SQLQueryAdapter;
 import DT2.mysql.gen.MySQLExpressionGenerator;
 import DT2.tidb.TiDBErrors;
-import DT2.tidb.TiDBExpressionGenerator;
+//import DT2.tidb.TiDBExpressionGenerator;
 import DT2.tidb.TiDBProvider.TiDBGlobalState;
 import DT2.tidb.TiDBSchema.TiDBColumn;
 import DT2.tidb.TiDBSchema.TiDBTable;
-import DT2.tidb.visitor.TiDBVisitor;
+//import DT2.tidb.visitor.TiDBVisitor;
 
 public class TiDBInsertGenerator {
 
     private final TiDBGlobalState globalState;
     private final ExpectedErrors errors = new ExpectedErrors();
-    private TiDBExpressionGenerator gen;
+//    private TiDBExpressionGenerator gen;
 
     public TiDBInsertGenerator(TiDBGlobalState globalState) {
         this.globalState = globalState;
@@ -32,7 +32,7 @@ public class TiDBInsertGenerator {
 
     private SQLQueryAdapter get() {
         TiDBTable table = globalState.getSchema().getRandomTable(t -> !t.isView());
-        gen = new TiDBExpressionGenerator(globalState).setColumns(table.getColumns());
+//        gen = new TiDBExpressionGenerator(globalState).setColumns(table.getColumns());
         StringBuilder sb = new StringBuilder();
         boolean isInsert = Randomly.getBoolean();
         sb.append("INSERT");
@@ -90,8 +90,8 @@ public class TiDBInsertGenerator {
 //        }
     }
 
-    private void insertValue(StringBuilder sb) {
-        sb.append(gen.generateConstant()); // TODO: try to insert valid data
-    }
+//    private void insertValue(StringBuilder sb) {
+//        sb.append(gen.generateConstant()); // TODO: try to insert valid data
+//    }
 
 }
